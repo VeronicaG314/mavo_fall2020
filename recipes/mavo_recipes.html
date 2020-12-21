@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mavo Recipes</title>
+    <link rel="stylesheet" href="https://get.mavo.io/mavo.css"/>
+    <link rel="stylesheet" href="recipe.css"/>
+    <script src="https://get.mavo.io/mavo.js"></script>
+</head>
+<body>
+    <!-- add the Sort plugin -->
+    <div mv-app="data" mv-source="https://raw.githubusercontent.com/tarfahalrashed/ScrAPIr/master/public/recipes.json" mv-plugins="sort">
+        <!-- add the properties I want to sort by later on -->
+        <div property="recipe" mv-multiple>
+            <meta property="Title"/>
+            <meta property="AggregateLikes"/>
+            <meta property="Image"/>
+            <meta property="Vegetarian"/>
+            <meta property="Vegan"/>
+            <meta property="GlutenFree"/>
+            <meta property="DairyFree"/>
+            <meta property="Summary"/>
+            <meta property="SourceUrl"/>
+        </div>
+
+        <!-- choose which sort to display -->
+        <select property="recipeSort">
+            <option value="title">Title</option>
+            <option value="likes">Likes</option>
+            <option value="vegan">Vegan</option>
+            <option value="veggie">Vegetarian</option>
+            <option value="noGluten">Gluten Free</option>
+            <option value="noDairy">Dairy Free</option>
+        </select>
+        <h1>Recipes</h1>
+
+        <!-- sort in alphabetical order -->
+        <div mv-if="recipeSort = 'title'" mv-value="sort(recipe, '+Title')" mv-multiple>
+            <h2 property="Title"></h2>
+            <img class="symbol" src="https://868estatevineyards.com/wp-content/uploads/2019/02/Vegan-Symbol.png"
+                 alt="vegan" mv-if="Vegan = true"/>
+            <img class="symbol" src="https://www.pinclipart.com/picdir/big/519-5198582_pgn-vegan-symbol-clipart.png"
+                 alt="vegetarian" mv-if="Vegetarian = true"/>
+            <img class="symbol" src="https://www.pinclipart.com/picdir/big/54-541350_gluten-free-architecture-of-rtos-kernel-clipart.png"
+                 alt="gluten free" mv-if="GlutenFree = true"/>
+            <img class="symbol" src="https://cdn3.iconfinder.com/data/icons/food-ingredients-signs/64/161_no-without-free-lactose-dairy-milk-512.png"
+                 alt="dairy free" mv-if="DairyFree"/>
+            <p>Likes: <span property="AggregateLikes"></span></p>
+            <img src="[Image]"/>
+            <p><a href="[SourceUrl]" target="_blank">Link to Recipe</a></p>
+        </div>
+
+        <!-- sort by number of likes -->
+        <div mv-if="recipeSort = 'likes'" mv-value="sort(recipe, '-AggregateLikes', '+Title')" mv-multiple>
+            <h2 property="Title"></h2>
+            <img class="symbol" src="https://868estatevineyards.com/wp-content/uploads/2019/02/Vegan-Symbol.png"
+                 alt="vegan" mv-if="Vegan = true"/>
+            <img class="symbol" src="https://www.pinclipart.com/picdir/big/519-5198582_pgn-vegan-symbol-clipart.png"
+                 alt="vegetarian" mv-if="Vegetarian = true"/>
+            <img class="symbol" src="https://www.pinclipart.com/picdir/big/54-541350_gluten-free-architecture-of-rtos-kernel-clipart.png"
+                 alt="gluten free" mv-if="GlutenFree = true"/>
+            <img class="symbol" src="https://cdn3.iconfinder.com/data/icons/food-ingredients-signs/64/161_no-without-free-lactose-dairy-milk-512.png"
+                 alt="dairy free" mv-if="DairyFree"/>
+            <p>Likes: <span property="AggregateLikes"></span></p>
+            <img src="[Image]"/>
+        </div>
+
+        <!-- sort by dairy -->
+        <div mv-if="recipeSort = 'noDairy'" mv-value="sort(recipe, '-DairyFree')" mv-multiple>
+            <h2 property="Title"></h2>
+            <img class="symbol" src="https://868estatevineyards.com/wp-content/uploads/2019/02/Vegan-Symbol.png"
+                 alt="vegan" mv-if="Vegan = true"/>
+            <img class="symbol" src="https://www.pinclipart.com/picdir/big/519-5198582_pgn-vegan-symbol-clipart.png"
+                 alt="vegetarian" mv-if="Vegetarian = true"/>
+            <img class="symbol" src="https://www.pinclipart.com/picdir/big/54-541350_gluten-free-architecture-of-rtos-kernel-clipart.png"
+                 alt="gluten free" mv-if="GlutenFree = true"/>
+            <img class="symbol" src="https://cdn3.iconfinder.com/data/icons/food-ingredients-signs/64/161_no-without-free-lactose-dairy-milk-512.png"
+                 alt="dairy free" mv-if="DairyFree"/>
+            <p>Likes: <span property="AggregateLikes"></span></p>
+            <img src="[Image]"/>
+        </div>
+
+        <!-- sort by gluten -->
+        <div mv-if="recipeSort = 'noGluten'" mv-value="sort(recipe, '-GlutenFree')" mv-multiple>
+            <h2 property="Title"></h2>
+            <img class="symbol" src="https://868estatevineyards.com/wp-content/uploads/2019/02/Vegan-Symbol.png"
+                 alt="vegan" mv-if="Vegan = true"/>
+            <img class="symbol" src="https://www.pinclipart.com/picdir/big/519-5198582_pgn-vegan-symbol-clipart.png"
+                 alt="vegetarian" mv-if="Vegetarian = true"/>
+            <img class="symbol" src="https://www.pinclipart.com/picdir/big/54-541350_gluten-free-architecture-of-rtos-kernel-clipart.png"
+                 alt="gluten free" mv-if="GlutenFree = true"/>
+            <img class="symbol" src="https://cdn3.iconfinder.com/data/icons/food-ingredients-signs/64/161_no-without-free-lactose-dairy-milk-512.png"
+                 alt="dairy free" mv-if="DairyFree"/>
+            <p>Likes: <span property="AggregateLikes"></span></p>
+            <img src="[Image]"/>
+        </div>
+
+        <!-- sort by vegan -->
+        <div mv-if="recipeSort = 'vegan'" mv-value="sort(recipe, '-Vegan')" mv-multiple>
+            <h2 property="Title"></h2>
+            <img class="symbol" src="https://868estatevineyards.com/wp-content/uploads/2019/02/Vegan-Symbol.png"
+                 alt="vegan" mv-if="Vegan = true"/>
+            <img class="symbol" src="https://www.pinclipart.com/picdir/big/519-5198582_pgn-vegan-symbol-clipart.png"
+                 alt="vegetarian" mv-if="Vegetarian = true"/>
+            <img class="symbol" src="https://www.pinclipart.com/picdir/big/54-541350_gluten-free-architecture-of-rtos-kernel-clipart.png"
+                 alt="gluten free" mv-if="GlutenFree = true"/>
+            <img class="symbol" src="https://cdn3.iconfinder.com/data/icons/food-ingredients-signs/64/161_no-without-free-lactose-dairy-milk-512.png"
+                 alt="dairy free" mv-if="DairyFree"/>
+            <p>Likes: <span property="AggregateLikes"></span></p>
+            <img src="[Image]"/>
+        </div>
+
+        <!-- sort by vegetarian -->
+        <div mv-if="recipeSort = 'veggie'" mv-value="sort(recipe, '-Vegetarian')" mv-multiple>
+            <h2 property="Title"></h2>
+            <img class="symbol" src="https://868estatevineyards.com/wp-content/uploads/2019/02/Vegan-Symbol.png"
+                 alt="vegan" mv-if="Vegan = true"/>
+            <img class="symbol" src="https://www.pinclipart.com/picdir/big/519-5198582_pgn-vegan-symbol-clipart.png"
+                 alt="vegetarian" mv-if="Vegetarian = true"/>
+            <img class="symbol" src="https://www.pinclipart.com/picdir/big/54-541350_gluten-free-architecture-of-rtos-kernel-clipart.png"
+                 alt="gluten free" mv-if="GlutenFree = true"/>
+            <img class="symbol" src="https://cdn3.iconfinder.com/data/icons/food-ingredients-signs/64/161_no-without-free-lactose-dairy-milk-512.png"
+                 alt="dairy free" mv-if="DairyFree"/>
+            <p>Likes: <span property="AggregateLikes"></span></p>
+            <img src="[Image]"/>
+        </div>
+    </div>
+</body>
+</html>
