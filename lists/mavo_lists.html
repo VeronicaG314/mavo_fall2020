@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mavo List</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://get.mavo.io/mavo.css"/>
+	  <link rel="stylesheet" href="lists.css"/>
+    <script src="https://get.mavo.io/mavo.js"></script>
+</head>
+<body>
+    <div mv-app="data" mv-source="https://raw.githubusercontent.com/tarfahalrashed/ScrAPIr/master/public/dataEtsy.json" >
+        <!-- search feature not implemented -->
+        <div class="search-container">
+            <form>
+                <input type="text" placeholder="Search.." name="search">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+        <div class="mv-bar mv-ui" style="background: black; position:fixed; width:95%; top:0"></div>
+        <div class="main">
+            <div class="gallery" property="result" mv-multiple>
+                <h2 property="title"></h2>
+                <p class="hide"><strong>Description:</strong> <span property="description"></span></p>
+                <p><strong>Price:</strong> [curr]<span property="price"></span></p>
+                <meta property="currency_code" mv-edit="#codes"/>
+                <!-- translate currency codes into currency symbols -->
+                <meta property="curr" content="[if(currency_code='USD', '$',
+                                                if(currency_code='GBP', '£',
+                                                if(currency_code='EUR', '€')))]"/>
+                <p><strong>Quantity:</strong> <span property="quantity"></span></p>
+                <p><strong>Views:</strong> <span property="views"></span></p>
+                <p><strong>Site:</strong> <span property="site"></span></p>
+                <meta property="url" mv-edit="#website"/>
+                <a href="[url]" target="_blank" class="button-like">Visit Site</a>
+
+                <!-- allows you to choose currency code when adding new list items -->
+                <div hidden>
+                    <select id="codes">
+                        <option value="EUR">EUR</option>
+                        <option value="GBP">GBP</option>
+                        <option value="USD">USD</option>
+                    </select>
+                </div>
+
+                <!-- allows you to add a link when adding new list items -->
+                <div hidden>
+                    <span>URL:</span>
+                    <input id="website"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
