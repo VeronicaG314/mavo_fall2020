@@ -14,6 +14,7 @@ a.button-like:hover, a.button-like:active {
 div.main{
 	margin-top: 80px;
 }
+
 div.gallery {
 	margin: 5px;
 	border: 2px solid #ccc;
@@ -34,6 +35,7 @@ p.hide {
 	-webkit-box-orient: vertical;  
 	overflow: hidden;
 }
+
 .search-container{
 	background-color: black;
 	width: 95%;
@@ -46,7 +48,6 @@ p.hide {
 	margin-left:0px;
 	z-index:2;
 }
-
 
 .search-container button {
 	float: left;
