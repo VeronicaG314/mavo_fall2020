@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <title>Mavo Youtube</title>
+    <link rel="stylesheet" href="https://get.mavo.io/mavo.css"/>
+	<link rel="stylesheet" href="youtube_1.css"/>
+    <script src="https://get.mavo.io/mavo.js"></script>
+</head>
+<body>
+	<!-- display video at top of page-->
+	<div id="vid-player" mv-app="player" mv-if="title" mv-bar="none">
+		<h1 property="title"></h1>
+		<iframe width="560" height="315" src="[videoId]?autoplay=1" title="[title]">Nothing to See Here</iframe>
+	</div>
+	<!-- list all videos -->
+	<div class="listed-videos" mv-app="data" mv-source="https://raw.githubusercontent.com/VeronicaG314/mv-data/main/data.json">
+		<div class="mv-bar mv-ui" style="background: #006080"></div>
+		<hr>
+        <div class="mv-add-video" property="video" mv-multiple>
+			<h2 property="title"></h2>
+			<span>Video embed link: </span>
+			<span property="videoId"></span><br>
+			<span property="description"></span>
+			<button class="green-hover" type="button" mv-action="set(player,video)">Play!</button>
+			<!-- each individual comment is a list item-->
+			<ul>
+				<li class="mv-add-comment" property="comment" mv-multiple>
+					<p id="comment-text" property="text"></p>
+					<p id="comment-author" property="author"></p>
+					<button id="delete" class="red-hover" type="button" mv-action="delete(comment)">Delete</button>
+					<br>
+				</li>
+			</ul>
+			<hr>
+		</div>
+    </div>
+</body>
+</html>

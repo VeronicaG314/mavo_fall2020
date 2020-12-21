@@ -1,0 +1,59 @@
+iframe {
+	display: block;
+	margin: inherit;
+}
+body {
+    background-color: rgb(204, 255, 255); /* blue */
+}
+
+#vid-player {
+	margin: auto;
+	text-align: center;
+}
+
+button {
+	background-color: #008CBA; /* blue */
+	border: none;
+	color: white;
+	padding: 10px 15px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 14px;
+}
+
+button.red-hover:hover {
+	background-color: #f4511e;
+}
+
+button.green-hover:hover, button.mv-add-comment:hover, button.mv-add-video:hover{
+	background-color: #4CAF50;
+}
+
+input {
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+
+.listed-videos {
+	margin-top: 20px;
+	padding-left: 10%;
+	padding-right: 10%;
+}
+
+#comment-author {
+	text-align: right;
+	padding-right: 20%;
+}
+
+ul {
+	list-style-type: none;
+}
+
+#delete {
+	padding: 5px;
+}
+
+button.mv-add-comment {
+    margin-top: 20px;
+}
